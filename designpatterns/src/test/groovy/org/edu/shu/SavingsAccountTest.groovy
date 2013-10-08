@@ -18,17 +18,38 @@ class SavingsAccountTest extends Specification {
     def "should add to account balance"()
     {
         given: " I have an account with balance $currentBalance"
-           Account savingsAccount = new SavingsAccount(currentBalance)
+        Account savingsAccount = new SavingsAccount(currentBalance)
+        TransactionGeneration transNumber = new TransactionGeneration();
+
         when: " I deposit my account"
-            String transactionNumber = savingsAccount.deposit(depositAmount)
+        savingsAccount.deposit(depositAmount)
+        String transactionNumber = transNumber.GenerateTransactionNumber();
         then: " my balance should be higher"
-          savingsAccount.balance == newBalance
-          transactionNumber != null
+        savingsAccount.balance == newBalance
+        transactionNumber != null
         where:
-          currentBalance | depositAmount | newBalance
-           0             | 100     | 100
-           5             | 25      | 30
+        currentBalance | depositAmount | newBalance
+        0             | 100     | 100
+        5             | 25      | 30
 
     }
+
+
+ /*   @Unroll
+    def "should add to account balance"()
+    {
+        given: " I have an account with balance $currentBalance"
+        Account savingsAccount = new SavingsAccount(currentBalance)
+        when: " I deposit my account"
+        String transactionNumber = savingsAccount.deposit(depositAmount)
+        then: " my balance should be higher"
+        savingsAccount.balance == newBalance
+        transactionNumber != null
+        where:
+        currentBalance | depositAmount | newBalance
+        0             | 100     | 100
+        5             | 25      | 30
+
+    }          */
 
 }

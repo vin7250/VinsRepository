@@ -20,9 +20,15 @@ public class SavingsAccount implements Account {
         return balance;
     }
 
+
     @Override
-    public String deposit(float amount) {
+    public void deposit(float amount) {
         this.balance += amount;
-        return new Random().nextInt() + "";
     }
+
+  /*  @Override
+    amount;
+        return new Rand public String deposit(float amount) {
+        this.balance += Random().nextInt() + "";
+    }       */
 }

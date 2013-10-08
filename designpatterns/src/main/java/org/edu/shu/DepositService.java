@@ -15,12 +15,18 @@ public class DepositService {
         this.access = access;
     }
 
-    public String deposit(float amount, String accountNumber)
+    public void deposit(float amount, String accountNumber){
+        Account account = access.findAccount(accountNumber);
+        account.deposit(amount);
+        access.save(account);
+    }
+
+  /*  public String deposit(float amount, String accountNumber)
     {
         Account account = access.findAccount(accountNumber);
         String transactionNumber = account.deposit(amount);
         access.save(account);
 
         return transactionNumber;
-    }
+    }        */
 }

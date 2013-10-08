@@ -8,5 +8,7 @@ package org.edu.shu;
  * To change this template use File | Settings | File Templates.
  */
 public interface Account {
-    public String deposit(float amount);
+    public void deposit(float amount);
+
+   /* public String deposit(float amount);*/
 }
